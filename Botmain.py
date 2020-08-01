@@ -70,8 +70,6 @@ def audio_saver(message):
         src = dest + message.voice.file_id + '.ogg'
         with open(src, 'wb') as new_file:
             new_file.write(downloaded_file)
-        # audio = sf.read(src)
-        # sf.write(dest + 'audiomessage_' + num + '.wav', audio, samplerate=16000)
         voice = AudioSegment.from_ogg(src)
         voice.export(dest+'audio_message_' + num + '.wav', format='wav', bitrate=512000)
 
