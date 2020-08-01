@@ -72,7 +72,7 @@ def audio_saver(message):
             new_file.write(downloaded_file)
         voice = AudioSegment.from_ogg(src)
         voice.export(dest+'audio_message_' + num + '.wav', format='wav', bitrate=512000)
-
+        bot.send_message(message.chat.id, 'Аудиосообщение было сохранено и конвертировано')
         os.remove(src)
     except Exception as e:
         bot.reply_to(message, e)
